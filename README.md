@@ -1,36 +1,103 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# GEHU RoboTech Club Website
+
+> Official Robotics Club website for **Graphic Era Hill University (GEHU), Bhimtal Campus** — Electronics & Communication Engineering.
+
+Built with **Next.js 15**, **Supabase**, **Razorpay**, and **Tailwind CSS**.
+
+## Features
+
+- 🤖 **Landing Page** with real GEHU Bhimtal campus imagery
+- 👥 **3-Tier RBAC** — Faculty Advisor → President/Management → Member
+- 📋 **Event Registration Forms** (Google Form-style) with Razorpay payments
+- 🏆 **Certificate Generation & Verification** by roll number
+- 📸 **Media Upload** — photos/videos via admin panel
+- 🏫 **Multi-Campus Ready** — Bhimtal, Dehradun, Haldwani
+- 📊 **Admin Dashboard** with stats, member management, event CRUD
+- 🔐 **Supabase Auth** with email/password and role-based access
+- 💳 **Razorpay Integration** for paid event registrations
+
+## Tech Stack
+
+| Layer | Technology |
+|-------|-----------|
+| Framework | Next.js 15 (App Router, TypeScript) |
+| Styling | Tailwind CSS v4 |
+| Database | Supabase (PostgreSQL) |
+| Auth | Supabase Auth (cookie-based SSR) |
+| Payments | Razorpay |
+| File Storage | Supabase Storage |
+| Animations | Framer Motion |
+| Icons | Lucide React |
+| Deployment | Vercel |
 
 ## Getting Started
 
-First, run the development server:
-
+### 1. Clone the repository
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/YOUR_USERNAME/gehu-robotics-club.git
+cd gehu-robotics-club
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. Set up environment variables
+```bash
+cp .env.local.example .env.local
+```
+Fill in your keys (see **Getting API Keys** section below).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 3. Set up Supabase database
+Run the SQL from `supabase/schema.sql` in your Supabase SQL Editor.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 4. Start development server
+```bash
+npm run dev
+```
+Open http://localhost:3000
 
-## Learn More
+## Getting API Keys (All Free)
 
-To learn more about Next.js, take a look at the following resources:
+### Supabase (Free Tier)
+1. Go to https://supabase.com → Sign up free
+2. Click "New Project" → Name it, set a password, choose a region
+3. After creation, go to **Settings → API**
+4. Copy:
+   - `NEXT_PUBLIC_SUPABASE_URL` = Project URL
+   - `NEXT_PUBLIC_SUPABASE_ANON_KEY` = anon/public key
+   - `SUPABASE_SERVICE_ROLE_KEY` = service_role key
+5. Go to **SQL Editor** and run the contents of `supabase/schema.sql`
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Razorpay (Free Test Mode)
+1. Go to https://dashboard.razorpay.com → Sign up free
+2. Dashboard opens in **Test Mode** by default
+3. Go to **Settings → API Keys → Generate Test Key**
+4. Copy:
+   - `NEXT_PUBLIC_RAZORPAY_KEY_ID` = Key ID (starts with `rzp_test_`)
+   - `RAZORPAY_KEY_SECRET` = Key Secret
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+> Note: Test mode is free and allows unlimited test transactions. Switch to Live mode for real payments after KYC.
 
-## Deploy on Vercel
+## Deployment to Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. Push to GitHub
+2. Go to https://vercel.com → Import your repo
+3. Set environment variables in Vercel dashboard
+4. Deploy!
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Project Structure
+
+```
+src/
+├── app/                    # Next.js App Router pages
+│   ├── (public pages)      # Home, Events, Gallery, About, Verify
+│   ├── login/ & signup/    # Auth pages
+│   ├── dashboard/          # Role-based admin panel
+│   ├── form/[eventId]/     # Event registration + Razorpay
+│   └── api/                # Razorpay API routes
+├── components/             # Reusable UI components
+├── lib/                    # Supabase clients, utilities, constants
+└── types/                  # TypeScript type definitions
+```
+
+## License
+
+MIT — Built for GEHU Bhimtal ECE Department.
