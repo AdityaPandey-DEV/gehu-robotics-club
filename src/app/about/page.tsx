@@ -63,14 +63,14 @@ export default function AboutPage() {
           <motion.h2 variants={fadeInUp} className="text-3xl font-bold text-white mb-8 text-center">What We Do</motion.h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {[
-              { icon: Bot, title: 'Build Robots', color: 'cyan' },
-              { icon: CircuitBoard, title: 'Design Circuits', color: 'blue' },
-              { icon: Zap, title: 'IoT Projects', color: 'amber' },
-              { icon: Rocket, title: 'Compete Nationally', color: 'emerald' },
+              { icon: Bot, title: 'Build Robots', bgClass: 'icon-bg-cyan', textClass: 'icon-text-cyan' },
+              { icon: CircuitBoard, title: 'Design Circuits', bgClass: 'icon-bg-blue', textClass: 'icon-text-blue' },
+              { icon: Zap, title: 'IoT Projects', bgClass: 'icon-bg-amber', textClass: 'icon-text-amber' },
+              { icon: Rocket, title: 'Compete Nationally', bgClass: 'icon-bg-emerald', textClass: 'icon-text-emerald' },
             ].map((item) => (
               <motion.div key={item.title} variants={fadeInUp} className="glass-card p-6 text-center group cursor-default">
-                <div className={`w-14 h-14 rounded-xl bg-${item.color}-500/10 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform`}>
-                  <item.icon className={`w-7 h-7 text-${item.color}-400`} />
+                <div className={`w-14 h-14 rounded-xl ${item.bgClass} flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform`}>
+                  <item.icon className={`w-7 h-7 ${item.textClass}`} />
                 </div>
                 <h3 className="text-white font-semibold">{item.title}</h3>
               </motion.div>

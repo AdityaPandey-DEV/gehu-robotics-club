@@ -190,20 +190,20 @@ export default function HomePage() {
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
           >
             {[
-              { icon: Bot, title: 'Robotics Projects', desc: 'Build autonomous robots, robotic arms, and intelligent machines from scratch.', color: 'cyan' },
-              { icon: CircuitBoard, title: 'Electronics Lab', desc: 'Access FPGA boards, oscilloscopes, sensors, and prototyping equipment.', color: 'blue' },
-              { icon: Cog, title: 'IoT & Embedded', desc: 'Create smart systems using Arduino, Raspberry Pi, ESP32, and MQTT.', color: 'purple' },
-              { icon: Lightbulb, title: 'Workshops & Training', desc: 'Regular hands-on workshops on PCB design, soldering, and programming.', color: 'amber' },
-              { icon: Trophy, title: 'Competitions', desc: 'Participate in national and international robotics competitions and hackathons.', color: 'emerald' },
-              { icon: GraduationCap, title: 'Research & Papers', desc: 'Conduct research in autonomous systems, signal processing, and communication.', color: 'rose' },
-            ].map((item, i) => (
+              { icon: Bot, title: 'Robotics Projects', desc: 'Build autonomous robots, robotic arms, and intelligent machines from scratch.', bgClass: 'icon-bg-cyan', textClass: 'icon-text-cyan' },
+              { icon: CircuitBoard, title: 'Electronics Lab', desc: 'Access FPGA boards, oscilloscopes, sensors, and prototyping equipment.', bgClass: 'icon-bg-blue', textClass: 'icon-text-blue' },
+              { icon: Cog, title: 'IoT & Embedded', desc: 'Create smart systems using Arduino, Raspberry Pi, ESP32, and MQTT.', bgClass: 'icon-bg-purple', textClass: 'icon-text-purple' },
+              { icon: Lightbulb, title: 'Workshops & Training', desc: 'Regular hands-on workshops on PCB design, soldering, and programming.', bgClass: 'icon-bg-amber', textClass: 'icon-text-amber' },
+              { icon: Trophy, title: 'Competitions', desc: 'Participate in national and international robotics competitions and hackathons.', bgClass: 'icon-bg-emerald', textClass: 'icon-text-emerald' },
+              { icon: GraduationCap, title: 'Research & Papers', desc: 'Conduct research in autonomous systems, signal processing, and communication.', bgClass: 'icon-bg-rose', textClass: 'icon-text-rose' },
+            ].map((item) => (
               <motion.div
                 key={item.title}
                 variants={fadeInUp}
                 className="glass-card p-6 group cursor-default"
               >
-                <div className={`w-12 h-12 rounded-xl bg-${item.color}-500/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
-                  <item.icon className={`w-6 h-6 text-${item.color}-400`} />
+                <div className={`w-12 h-12 rounded-xl ${item.bgClass} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
+                  <item.icon className={`w-6 h-6 ${item.textClass}`} />
                 </div>
                 <h3 className="text-white font-semibold text-lg mb-2">{item.title}</h3>
                 <p className="text-slate-400 text-sm leading-relaxed">{item.desc}</p>

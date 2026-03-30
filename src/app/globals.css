@@ -1,5 +1,5 @@
-@import "tailwindcss";
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -31,12 +31,6 @@
   --muted-bg: #1e293b;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 html {
   scroll-behavior: smooth;
 }
@@ -47,6 +41,7 @@ body {
   color: var(--foreground);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
 code, pre {
@@ -111,6 +106,21 @@ code, pre {
   background-clip: text;
 }
 
+/* ===== FEATURE ICON COLORS (Tailwind can't purge dynamic classes) ===== */
+.icon-bg-cyan { background: rgba(6, 182, 212, 0.1); }
+.icon-bg-blue { background: rgba(59, 130, 246, 0.1); }
+.icon-bg-purple { background: rgba(168, 85, 247, 0.1); }
+.icon-bg-amber { background: rgba(245, 158, 11, 0.1); }
+.icon-bg-emerald { background: rgba(16, 185, 129, 0.1); }
+.icon-bg-rose { background: rgba(244, 63, 94, 0.1); }
+
+.icon-text-cyan { color: #22d3ee; }
+.icon-text-blue { color: #60a5fa; }
+.icon-text-purple { color: #a78bfa; }
+.icon-text-amber { color: #fbbf24; }
+.icon-text-emerald { color: #34d399; }
+.icon-text-rose { color: #fb7185; }
+
 /* ===== ANIMATIONS ===== */
 @keyframes float {
   0%, 100% { transform: translateY(0); }
@@ -172,6 +182,9 @@ code, pre {
 
 /* ===== BUTTONS ===== */
 .btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
   color: white;
   padding: 12px 32px;
@@ -181,6 +194,8 @@ code, pre {
   border: none;
   cursor: pointer;
   font-size: 1rem;
+  text-decoration: none;
+  line-height: 1.5;
 }
 
 .btn-primary:hover {
@@ -189,6 +204,9 @@ code, pre {
 }
 
 .btn-accent {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   background: linear-gradient(135deg, #06b6d4 0%, #22d3ee 100%);
   color: #0f172a;
   padding: 12px 32px;
@@ -198,6 +216,8 @@ code, pre {
   border: none;
   cursor: pointer;
   font-size: 1rem;
+  text-decoration: none;
+  line-height: 1.5;
 }
 
 .btn-accent:hover {
@@ -206,6 +226,9 @@ code, pre {
 }
 
 .btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   background: transparent;
   color: var(--accent);
   padding: 12px 32px;
@@ -215,6 +238,8 @@ code, pre {
   border: 2px solid var(--accent);
   cursor: pointer;
   font-size: 1rem;
+  text-decoration: none;
+  line-height: 1.5;
 }
 
 .btn-outline:hover {
@@ -276,6 +301,7 @@ code, pre {
   color: var(--foreground);
   font-size: 1rem;
   transition: all 0.3s ease;
+  font-family: 'Inter', system-ui, sans-serif;
 }
 
 .form-input:focus {

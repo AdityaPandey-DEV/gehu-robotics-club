@@ -7,10 +7,10 @@ const fadeInUp = { hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, t
 const stagger = { visible: { transition: { staggerChildren: 0.08 } } };
 
 const STATS = [
-  { label: 'Total Members', value: '52', change: '+8 this month', icon: Users, color: 'cyan' },
-  { label: 'Active Events', value: '6', change: '3 upcoming', icon: Calendar, color: 'blue' },
-  { label: 'Certificates', value: '128', change: '+24 issued', icon: Award, color: 'amber' },
-  { label: 'Revenue', value: '₹15,400', change: 'From registrations', icon: CreditCard, color: 'emerald' },
+  { label: 'Total Members', value: '52', change: '+8 this month', icon: Users, bgClass: 'icon-bg-cyan', textClass: 'icon-text-cyan' },
+  { label: 'Active Events', value: '6', change: '3 upcoming', icon: Calendar, bgClass: 'icon-bg-blue', textClass: 'icon-text-blue' },
+  { label: 'Certificates', value: '128', change: '+24 issued', icon: Award, bgClass: 'icon-bg-amber', textClass: 'icon-text-amber' },
+  { label: 'Revenue', value: '₹15,400', change: 'From registrations', icon: CreditCard, bgClass: 'icon-bg-emerald', textClass: 'icon-text-emerald' },
 ];
 
 export default function DashboardPage() {
@@ -26,8 +26,8 @@ export default function DashboardPage() {
         {STATS.map((stat) => (
           <motion.div key={stat.label} variants={fadeInUp} className="glass-card p-5">
             <div className="flex items-start justify-between mb-3">
-              <div className={`w-10 h-10 rounded-lg bg-${stat.color}-500/10 flex items-center justify-center`}>
-                <stat.icon className={`w-5 h-5 text-${stat.color}-400`} />
+              <div className={`w-10 h-10 rounded-lg ${stat.bgClass} flex items-center justify-center`}>
+                <stat.icon className={`w-5 h-5 ${stat.textClass}`} />
               </div>
               <ArrowUpRight className="w-4 h-4 text-emerald-400" />
             </div>
